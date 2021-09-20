@@ -1,7 +1,9 @@
-#AndroidAutoStub
+## AndroidAutoStub
 
 - stock AndroidAutoStub extracted from pixel
 - custom built Google Search App and Google Speech Services Stubs
+
+## Build
 
 add this to your manifests to use:
 ```
@@ -9,11 +11,29 @@ add this to your manifests to use:
 <manifest>
 	  <project name="SolidHal/android-auto-stub" path="prebuilts/androidauto" remote="github" revision="master" />
 </manifest>
+```
 
-sources for custom built stubs:
+then include the following line in your device.mk or common.mk:
+```
+PRODUCT_PACKAGES += AndroidAuto gappsstub speechservicestub
+```
+or you can also add it to your `vendor/$vendor/config/common.mk`
+
+## get android auto setup
+
+- Install the latest android auto apk (you can find this online or get it with aurora store)
+- Install google maps in the same way
+- open google maps once, grant it location permissions. Just while in use is fine.
+- android auto *should* just work now
+
+if you get stuck on google maps permission, try pressing cancel instead of settings.
+
+if you are having trouble with first time setup, I found it was helpful to setup the bluetooth connection to the car before plugging in the usb c.
+
+
+sources for custom built stubs with build instructions for each of the stubs:
 https://github.com/SolidHal/SpeechServices-Package-Spoof
 https://github.com/SolidHal/Gapp-Package-Spoof
 
 big thanks to @dylangerdaly and the thread here https://github.com/microg/GmsCore/issues/897
 
-```
